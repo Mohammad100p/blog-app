@@ -1,0 +1,12 @@
+<% if @comments.error.any? %>
+  document.querySelector('#error_explanation') ? document.querySelector('#error_explanation').remove() : null ;
+
+  document.querySelector('#comments-form').inserAdjacentHTML('afterbegin','<%= escape_javascript(render "shared/validation-messages", object: @comments) %>');
+
+<% else %>
+  document.querySelector('#error_explanation') ? document.querySelector('#error_explanation').remove() : null ;
+
+  document.querySelector('#comments-form').inserAdjacentHTML('afterbegin','<%= escape_javascript(render @comments %>');
+
+  document.querySelector('#comments-form').reset();
+<% end %>
